@@ -1,7 +1,31 @@
-import Card from './components/Card';
+/* eslint-disable no-unused-vars */
+import Card from './components/Card/Card';
 /* eslint-disable jsx-a11y/alt-text */
 import Header from './components/Header';
 import Korzina from './components/Korzina';
+
+const arr = [
+	{
+		name: 'Мужские кроссовки Nike Blazer Mid Suede',
+		price: '15 000 T',
+		url: '/image/1.png',
+	},
+	{
+		name: 'Мужские Кроссовки Nike Air Max 270',
+		price: '14 000 T',
+		url: '/image/2.png',
+	},
+	{
+		name: 'Мужские Кроссовки Nike Blazer Mid Suede',
+		price: '18 000 T',
+		url: '/image/3.png',
+	},
+	{
+		name: 'Кроссовки Puma X Aka Boku Future Rider',
+		price: '20 500 T',
+		url: '/image/4.png',
+	},
+];
 
 function App() {
 	return (
@@ -17,10 +41,16 @@ function App() {
 					</div>
 				</div>
 				<div className="d-flex">
-					<Card />
-					<Card />
-					<Card />
-					<Card />
+					{arr.map((val) => (
+						<Card
+							title={val.name}
+							price={val.price}
+							url={val.url}
+							onClick={() => {
+								console.log(val);
+							}}
+						/>
+					))}
 				</div>
 			</div>
 		</div>
