@@ -47,7 +47,7 @@ function App() {
 							price={val.price}
 							url={val.url}
 							onClick={() => {
-								console.log(val);
+								console.log('', val);
 							}}
 						/>
 					))}
