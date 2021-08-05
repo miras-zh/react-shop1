@@ -49,6 +49,7 @@ function App() {
 							onClick={() => {
 								console.log('', val);
 							}}
+							onFavorite={()=>{console.log('favorite click')}}
 						/>
 					))}
 				</div>
