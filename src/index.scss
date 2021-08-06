@@ -73,14 +73,7 @@ code {
       background-position: center;
     }
 
-    .btnRemoveCart {
-      opacity: 0.5;
-      transition: opacity 0.2s ease-in-out;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
+    
 
     p {
       font-size: 16px;
@@ -97,6 +90,14 @@ code {
 
     overflow: auto;
   }
+  .btnRemoveCart {
+      opacity: 0.5;
+      transition: opacity 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
 }
 
 .CartTotalBlock {

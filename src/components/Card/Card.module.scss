@@ -7,7 +7,6 @@
 	transition: box-shadow 0.2s ease-in-out;
 	transition: transform 0.2s ease-in-out !important;
 	;
-	cursor: pointer;
 
 	&:hover {
 		box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.07);
@@ -33,5 +32,11 @@
 	h5 {
 		font-size: 14px;
 		font-weight: 400;
+	}
+
+	.plus{
+		cursor:pointer;
+		width: 30px;
+		height: 30px;
 	}
 }
