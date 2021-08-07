@@ -1,4 +1,6 @@
-function Korzina(props) {
+function Korzina({ onClickClose, items = [] }) {
+  // eslint-disable-next-line no-unused-vars
+  var summa = 0;
   return (
     <div className="overlay">
       <div className="drawer">
@@ -8,77 +10,34 @@ function Korzina(props) {
             className="btnRemoveCart cu-p"
             src="/image/btn_cart_remove.svg"
             alt=""
-            onClick={props.onClickClose}
+            onClick={onClickClose}
           />
         </h2>
         <div className="item">
-          <div className="cartItem d-flex align-center">
-            <div
-              style={{ backgroundImage: "url(/image/1.png)" }}
-              className="cartItemImg"
-            ></div>
-            <div className="ml-15 mr-15">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>15 000 Тенге</b>
+          {items.map((itm) => (
+            <div className="cartItem d-flex align-center">
+              <div
+                style={{ backgroundImage: `url(${itm.url})` }}
+                className="cartItemImg"
+              ></div>
+              <div className="ml-15 mr-15">
+                <p className="mb-5">{itm.title}</p>
+                <b>{itm.price}</b>
+              </div>
+              <img
+                className="btnRemoveCart"
+                src="/image/btn_cart_remove.svg"
+                alt=""
+              />
             </div>
-            <img
-              className="btnRemoveCart"
-              src="/image/btn_cart_remove.svg"
-              alt=""
-            />
-          </div>
-          <div className="cartItem d-flex align-center">
-            <div
-              style={{ backgroundImage: "url(/image/2.png)" }}
-              className="cartItemImg"
-            ></div>
-            <div className="ml-15 mr-15">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>20 000 Тенге</b>
-            </div>
-            <img
-              className="btnRemoveCart"
-              src="/image/btn_cart_remove.svg"
-              alt=""
-            />
-          </div>
-          <div className="cartItem d-flex align-center">
-            <div
-              style={{ backgroundImage: "url(/image/2.png)" }}
-              className="cartItemImg"
-            ></div>
-            <div className="ml-15 mr-15">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>20 000 Тенге</b>
-            </div>
-            <img
-              className="btnRemoveCart"
-              src="/image/btn_cart_remove.svg"
-              alt=""
-            />
-          </div>
-          <div className="cartItem d-flex align-center">
-            <div
-              style={{ backgroundImage: "url(/image/2.png)" }}
-              className="cartItemImg"
-            ></div>
-            <div className="ml-15 mr-15">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>20 000 Тенге</b>
-            </div>
-            <img
-              className="btnRemoveCart"
-              src="/image/btn_cart_remove.svg"
-              alt=""
-            />
-          </div>
+          ))}
         </div>
         <div className="CartTotalBlock">
           <ul className="">
             <li className="d-flex">
               <span>Итого: </span>
               <div></div>
-              <b>21 498 тенге </b>
+              <b>{summa}</b>
             </li>
             <li className="d-flex">
               <span>Налог 5%: </span>
