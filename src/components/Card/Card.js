@@ -3,22 +3,43 @@
 import React from "react";
 import style from "./Card.module.scss";
 
-function Card({ title, price, url, onClick, onFavorite }) {
+function Card({
+  id,
+  title,
+  price,
+  url,
+  onClick,
+  onFavorite,
+  checkFavorite = false,
+}) {
   const [isAdded, setIsAdded] = React.useState(false);
+  const [isFavorite, setIsFavorite] = React.useState(checkFavorite);
+
   const onClickPlus = () => {
     console.log("pre status", isAdded);
 
     isAdded ? setIsAdded(false) : setIsAdded(true);
     console.log("check status", isAdded);
-    onClick({ title, price, url, isAdded });
+    onClick({ id, title, price, url, isAdded });
+  };
+
+  const onFavioriteAdd = () => {
+    console.log("favorite>", isFavorite);
+    isFavorite ? setIsFavorite(false) : setIsFavorite(true);
+    onFavorite({ id, title, price, url, isFavorite });
   };
 
   React.useEffect(() => {}, [isAdded]);
 
   return (
     <div className={style.card}>
-      <div className="styles.card-favorite" onClick={onFavorite}>
-        <img src="/image/heart-unlike.svg" alt="unliked" />
+      <div className={style.cardfavorite} onClick={onFavorite}>
+        <img
+          className={style.favorite}
+          src={isFavorite ? "/image/heart-like.svg" : "/image/heart-unlike.svg"}
+          alt="unliked"
+          onClick={onFavioriteAdd}
+        />
       </div>
       <img width={133} height={112} src={url} alt="tovar" />
       <h5>{title}</h5>
